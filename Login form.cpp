@@ -4,6 +4,7 @@ using namespace std;
 class temp{
     private:
         string username, email, password;
+        string searchname, searchemail, searchpassword;
         fstream file;
     public:
         void signup();
@@ -76,3 +77,31 @@ void temp :: signin(){
     }
     file.close();
 }
+void temp :: forgotpassword(){
+    string searchname, searchemail;
+    cout<<"------Forgot Password------"<<endl;
+    cout<<"Enter your username :: ";
+    getline(cin, searchname);
+    cout<<"Enter your email :: ";
+    getline(cin, searchemail);
+
+    file.open("loginData.txt", ios :: in);
+    getline(file, username, "*");
+    getline(file, email, "*");
+    getline(file, password, '\n');
+    while(!file.eof()){
+        if(username == searchname){
+            if(email == searchemail){
+                cout<<"Your password is :: "<<password<<endl;
+            }
+            else{
+                cout<<"Email is incorrect"<<endl;
+            }
+        }
+        getline(file, username, "*");
+        getline(file, email, "*");
+        getline(file, password, '\n');
+    }
+    file.close();
+}
+ void 
