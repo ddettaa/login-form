@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 class temp{
     private:
@@ -10,7 +11,7 @@ class temp{
         void signup();
         void signin();
         void forgotpassword();
-};
+}obj;
 
 int main() {
     char choice;
@@ -22,12 +23,15 @@ int main() {
     switch(choice){
         case '1':
             cout << "Sign up";
+            obj.signup();
             break;
         case '2':
             cout << "Sign in";
+            obj.signin();
             break;
         case '3':
             cout << "forgot password";
+            obj.forgotpassword();
             break;
         case '4':
             cout << "exit";
@@ -104,4 +108,3 @@ void temp :: forgotpassword(){
     }
     file.close();
 }
- void 
